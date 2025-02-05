@@ -28,6 +28,14 @@
             margin: 20px 0;
         }
 
+        main h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8em;
+            color: #007BFF;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
         main a {
             color: #007BFF;
             text-decoration: none;
@@ -122,14 +130,14 @@
 
     <main>
         <section>
-            <h2>Stuff we find important</h2>
+            <h2>Core Values & Inspirations</h2>
             <p>1. <a href="https://www.menshealth.com/">A healthy mind and body</a></p>
             <p>2. <a href="https://www.nvidia.com/en-us/">A focus on building the future of technology</a></p>
             <p>3. <a href="https://bitcoin.org/en/">Capturing and securing a financial future</a></p>
         </section>
 
         <section>
-            <h2>Portfolio</h2>
+            <h2>Featured Work</h2>
             <div class="slider-container">
                 <button class="slider-button left" onclick="slideLeft()">&#10094;</button>
                 <div class="slider">
@@ -147,27 +155,5 @@
     <footer>
         <p>&copy; 2024 Triangle Foundation Systems. All rights reserved.</p>
     </footer>
-
-    <script>
-        let currentIndex = 0;
-
-        function slideLeft() {
-            const slider = document.querySelector('.slider');
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-
-            currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function slideRight() {
-            const slider = document.querySelector('.slider');
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-
-            currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-    </script>
 </body>
 </html>
