@@ -29,6 +29,59 @@
             color: #00f;
         }
 
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .slider-button.left {
+            left: 10px;
+        }
+
+        .slider-button.right {
+            right: 10px;
+        }
+
+        .slider-button:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+        }
+
         footer {
             margin-top: 20px;
             font-size: 0.9em;
@@ -70,6 +123,21 @@
             <p>2. <a href="https://www.nvidia.com/en-us/">A focus on building the future of technology</a></p>
             <p>3. <a href="https://bitcoin.org/en/">Capturing and securing a financial future</a></p>
         </section>
+
+        <section>
+            <h2>Portfolio</h2>
+            <div class="slider-container">
+                <button class="slider-button left" onclick="slideLeft()">&#10094;</button>
+                <div class="slider">
+                    <div class="slide"><img src="image1.jpg" alt="Portfolio Item 1"></div>
+                    <div class="slide"><img src="image2.jpg" alt="Portfolio Item 2"></div>
+                    <div class="slide"><img src="image3.jpg" alt="Portfolio Item 3"></div>
+                    <div class="slide"><img src="image4.jpg" alt="Portfolio Item 4"></div>
+                    <div class="slide"><img src="image5.jpg" alt="Portfolio Item 5"></div>
+                </div>
+                <button class="slider-button right" onclick="slideRight()">&#10095;</button>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -77,6 +145,26 @@
     </footer>
     <img src="https://github.com/409lbl/Blender-Portfolio/raw/main/black%20tri%20render.png" alt="Company Logo" style="width:200px; height:auto; display:inline-block; vertical-align:middle; margin-left:10px;">
 
-    <script src="script.js"></script>
+    <script>
+        let currentIndex = 0;
+
+        function slideLeft() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function slideRight() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
 </body>
 </html>
