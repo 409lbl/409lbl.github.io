@@ -20,7 +20,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            display: none;
+            display: none; /* Hide particles by default */
         }
 
         .dark-mode {
@@ -32,29 +32,31 @@
         }
 
         .dark-mode #particles-js {
-            display: block;
+            display: block; /* Show particles when dark mode is enabled */
         }
 
         header, main, footer {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
             text-align: center;
         }
 
         header h1, header h2 {
             font-family: 'Orbitron', sans-serif;
+            color: #000000;
             margin: 10px 0;
         }
 
         main section {
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         main h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2em;
+            font-size: 1.8em;
+            color: #000000;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         main a {
@@ -70,7 +72,6 @@
             margin: 20px auto;
             border: 2px solid #FFFFFF;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
         }
 
         .slider {
@@ -87,7 +88,6 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 5px;
         }
 
         .slider-button {
@@ -99,7 +99,7 @@
             color: #FFFFFF;
             padding: 10px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             z-index: 10;
             border-radius: 50%;
         }
@@ -134,18 +134,24 @@
         }
 
         footer {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 0.9em;
         }
     </style>
 </head>
 <body>
+    
     <div id="particles-js"></div>
+
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">Sky View</button>
+
     <header>
         <h1>T.F.S.</h1>
         <h2>About the Foundation</h2>
-        <p>I am a 3D modeler and graphic designer passionate about bringing digital ideas to life...</p>
+        <p>I am a 3D modeler and graphic designer passionate about bringing digital ideas to life. What started as a hobby quickly became an obsession—turning simple shapes into stunning visuals.</p>
+        <p>I specialize in crafting detailed 3D models for various applications, using tools like Blender to create high-quality renders and assets.</p>
+        <p>Beyond 3D modeling, I also dive into website design—it’s another creative outlet that keeps me pushing my skills further.</p>
+        <p>My 3D modeling portfolio: <a href="https://github.com/409lbl/Blender-Portfolio">GitHub - Blender Portfolio</a></p>
     </header>
 
     <main>
@@ -156,14 +162,99 @@
                 <div class="slider">
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/pokeballcycles.png" alt="Pokeball Render"></div>
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/chess.png" alt="Chess Render"></div>
+                    <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/vase.png" alt="Vase Render"></div>
+                    <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/butterfly.png" alt="Butterfly Render"></div>
+                    <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png" alt="Sky Image Render"></div>
                 </div>
                 <button class="slider-button right" onclick="slideRight()">&#10095;</button>
             </div>
+        </section>
+    </main>
+
+<!-- Services Offered Section -->
+        <section>
+            <h2>Services Offered</h2>
+            <p>Here are the services I provide:</p>
+            <ul>
+                <li>3D Modeling & Rendering (Blender)</li>
+                <li>Graphic Design & Branding</li>
+                <li>Website Design & UI/UX Development</li>
+                <li>Animation & Motion Graphics</li>
+            </ul>
+        </section>
+
+        <!-- Inspirations Section -->
+        <section>
+            <h2>Inspirations</h2>
+            <p>These influences inspire my work:</p>
+            <ul>
+                <li><strong>Blender Artists Community</strong> - A hub for 3D creativity</li>
+                <li><strong>Studio Ghibli</strong> - Stunning animation and storytelling</li>
+                <li><strong>Sci-Fi and Fantasy Art</strong> - Building imaginative worlds</li>
+                <li><strong>Nature & Architecture</strong> - Organic and geometric beauty</li>
+            </ul>
         </section>
     </main>
     
     <footer>
         <p>&copy; 2024 Triangle Foundation Systems. All rights reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize Particles.js
+        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
+            console.log('Particles.js loaded');
+        });
+
+        // Auto-Slideshow
+        let currentIndex = 0;
+        const slider = document.querySelector('.slider');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function slideLeft() {
+            currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+            updateSlider();
+        }
+
+        function slideRight() {
+            currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function autoSlide() {
+            slideRight();
+        }
+        setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+
+        // Smooth Scroll Effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const particles = document.getElementById('particles-js');
+            const toggleButton = document.querySelector('.dark-mode-toggle');
+
+            if (document.body.classList.contains('dark-mode')) {
+                particles.style.display = 'block';
+                toggleButton.textContent = 'Normal View';
+            } else {
+                particles.style.display = 'none';
+                toggleButton.textContent = 'Sky View';
+            }
+        }
+    </script>
 </body>
 </html>
