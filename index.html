@@ -36,27 +36,25 @@
         }
 
         header, main, footer {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             text-align: center;
         }
 
         header h1, header h2 {
             font-family: 'Orbitron', sans-serif;
-            color: #000000;
             margin: 10px 0;
         }
 
         main section {
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         main h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8em;
-            color: #000000;
+            font-size: 2em;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         main a {
@@ -72,6 +70,7 @@
             margin: 20px auto;
             border: 2px solid #FFFFFF;
             border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
         }
 
         .slider {
@@ -88,6 +87,7 @@
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 5px;
         }
 
         .slider-button {
@@ -99,7 +99,7 @@
             color: #FFFFFF;
             padding: 10px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px;
             z-index: 10;
             border-radius: 50%;
         }
@@ -134,7 +134,7 @@
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 0.9em;
         }
     </style>
@@ -154,7 +154,8 @@
             <div class="slider-container">
                 <button class="slider-button left" onclick="slideLeft()">&#10094;</button>
                 <div class="slider">
-                    <div class="slide"><img src="your-image-url" alt="Your Work"></div>
+                    <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/pokeballcycles.png" alt="Pokeball Render"></div>
+                    <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/chess.png" alt="Chess Render"></div>
                 </div>
                 <button class="slider-button right" onclick="slideRight()">&#10095;</button>
             </div>
