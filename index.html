@@ -57,6 +57,7 @@
         }
 
         .slider-container {
+            <button class="slider-button pause" onclick="togglePause()">Pause</button>
             position: relative;
             width: 100%;
             max-width: 800px;
@@ -127,8 +128,27 @@
 
         footer {
             margin-top: 20px;
-            font-size: 0.9em;
+              font-size: 0.9em;
         }
+                .slider-button.pause {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+    .slider-button.pause:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000000;
+        }
+
     </style>
 </head>
 <body>
@@ -203,6 +223,8 @@
         let currentIndex = 0;
         const slider = document.querySelector('.slider');
         const totalSlides = document.querySelectorAll('.slide').length;
+        let autoSlideInterval;
+        let isPaused = false;
 
         function slideLeft() {
             currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
@@ -219,9 +241,24 @@
         }
 
         function autoSlide() {
-            slideRight();
+            autoSlideInterval = setInterval(slideRight, 5000);
         }
-        setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+
+        // Start auto-slide
+        autoSlide();
+
+        // Pause/Resume function
+        function togglePause() {
+            const pauseButton = document.querySelector('.slider-button.pause');
+            if (isPaused) {
+                autoSlide();
+                pauseButton.textContent = "Pause";
+            } else {
+                clearInterval(autoSlideInterval);
+                pauseButton.textContent = "Play";
+            }
+            isPaused = !isPaused;
+        }
 
         // Smooth Scroll Effect
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
