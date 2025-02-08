@@ -251,10 +251,10 @@
             const pauseButton = document.querySelector('.pause-button');
             if (isPaused) {
                 autoSlideInterval = setInterval(autoSlide, 5000);
-                pauseButton.textContent = "Pause";
+                pauseButton.textContent = "||";
             } else {
                 clearInterval(autoSlideInterval);
-                pauseButton.textContent = "Resume";
+                pauseButton.textContent = ">";
             }
             isPaused = !isPaused;
         }
