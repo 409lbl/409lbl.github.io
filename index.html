@@ -2,23 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Added meta description for SEO improvement -->
-    <meta name="description" content="Triangle Foundation Systems - Bridging the digital and physical worlds through 3D modeling, design, and immersive experiences.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Added preconnect for Google Fonts (performance optimization) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <title>My Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Global box-sizing rule for more predictable layout */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        
         body {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
             font-family: 'Roboto', sans-serif;
@@ -95,17 +83,17 @@
         }
 
         .slider-button {
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border-radius: 50%;  /* Keeps it a perfect circle */
-            position: absolute; /* Positioning added for clarity */
+            position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5); /* Added background for improved visibility */
+            background-color: rgba(0, 0, 0, 0.7);
             border: none;
-            color: #fff;
+            color: #FFFFFF;
+            padding: 10px;
             cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            border-radius: 50%;
         }
 
         .slider-button.left {
@@ -147,8 +135,7 @@
     
     <div id="particles-js"></div>
 
-    <!-- Added aria-pressed for accessibility on dark mode toggle button -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-pressed="false">Sky View</button>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Sky View</button>
 
     <header>
         <img src="https://github.com/409lbl/409lbl.github.io/raw/main/black%20tri%20render.png" alt="Funny Image" width="300">
@@ -163,9 +150,8 @@
     <main>
         <section>
             <h2>Featured Work</h2>
-            <div class="slider-container" role="region" aria-label="Featured Work Slider">
-                <!-- Added ARIA labels to slider buttons for improved accessibility -->
-                <button class="slider-button left" onclick="slideLeft()" aria-label="Previous Slide">&#10094;</button>
+            <div class="slider-container">
+                <button class="slider-button left" onclick="slideLeft()">&#10094;</button>
                 <div class="slider">
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/untitled.png" alt="Pokeball Render"></div>
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/chess.png" alt="Chess Render"></div>
@@ -173,20 +159,19 @@
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/pokeballcycles.png" alt="Butterfly Render"></div>
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png" alt="Sky Image Render"></div>
                 </div>
-                <button class="slider-button right" onclick="slideRight()" aria-label="Next Slide">&#10095;</button>
+                <button class="slider-button right" onclick="slideRight()">&#10095;</button>
             </div>
         </section>
 
-        <!-- Services Offered Section -->
+<!-- Services Offered Section -->
         <section>
             <h2>Services Offered</h2>
             <p>Here are the services I provide:</p>
-            <!-- Wrapped each service <p> inside a <li> for improved semantic structure -->
             <ul>
-                <li><p>3D Modeling & Rendering (Blender)</p></li>
-                <li><p>Graphic Design & Branding</p></li>
-                <li><p>Website Design using Github</p></li>
-                <li><p>Animation & Motion Graphics</p></li>
+                <p>3D Modeling & Rendering (Blender)</p>
+                <p>Graphic Design & Branding</p>
+                <p>Website Design using Github</p>
+                <p>Animation & Motion Graphics</p>
             </ul>
         </section>
 
@@ -194,12 +179,11 @@
         <section>
             <h2>Inspirations</h2>
             <p>These influences inspire my work:</p>
-            <!-- Wrapped each inspiration <p> inside a <li> for improved semantic structure -->
             <ul>
-               <li><p><strong>Blender Artists Community</strong> - A hub for 3D creativity</p></li>
-               <li><p><strong>Studio Ghibli</strong> - Stunning animation and storytelling</p></li>
-               <li><p><strong>Sci-Fi and Fantasy Art</strong> - Building imaginative worlds</p></li>
-               <li><p><strong>Nature & Architecture</strong> - Organic and geometric beauty</p></li>
+               <p><strong>Blender Artists Community</strong> - A hub for 3D creativity</p>
+               <p><strong>Studio Ghibli</strong> - Stunning animation and storytelling</p>
+               <p><strong>Sci-Fi and Fantasy Art</strong> - Building imaginative worlds</p>
+               <p><strong>Nature & Architecture</strong> - Organic and geometric beauty</p>
             </ul>
         </section>
     </main>
@@ -210,71 +194,59 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Wrapping JavaScript in an IIFE to limit global scope
-        (function() {
-            // Initialize Particles.js
-            particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
-                console.log('Particles.js loaded');
-            });
+        // Initialize Particles.js
+        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
+            console.log('Particles.js loaded');
+        });
 
-            // Auto-Slideshow
-            let currentIndex = 0;
-            const slider = document.querySelector('.slider');
-            const totalSlides = document.querySelectorAll('.slide').length;
+        // Auto-Slideshow
+        let currentIndex = 0;
+        const slider = document.querySelector('.slider');
+        const totalSlides = document.querySelectorAll('.slide').length;
 
-            function slideLeft() {
-                currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-                updateSlider();
-            }
+        function slideLeft() {
+            currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+            updateSlider();
+        }
 
-            function slideRight() {
-                currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
-                updateSlider();
-            }
+        function slideRight() {
+            currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+            updateSlider();
+        }
 
-            function updateSlider() {
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
 
-            function autoSlide() {
-                slideRight();
-            }
-            setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+        function autoSlide() {
+            slideRight();
+        }
+        setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
 
-            // Smooth Scroll Effect for anchor links starting with "#"
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // Smooth Scroll Effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
 
-            // Dark Mode Toggle
-            function toggleDarkMode() {
-                document.body.classList.toggle('dark-mode');
-                const particles = document.getElementById('particles-js');
-                const toggleButton = document.querySelector('.dark-mode-toggle');
+         // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const particles = document.getElementById('particles-js');
+            const toggleButton = document.querySelector('.dark-mode-toggle');
 
-                // Update aria-pressed for accessibility
-                const isDark = document.body.classList.contains('dark-mode');
-                toggleButton.setAttribute('aria-pressed', isDark);
-
-                if (isDark) {
-                    particles.style.display = 'block';
-                    toggleButton.textContent = 'Normal View';
-                } else {
-                    particles.style.display = 'none';
-                    toggleButton.textContent = 'Sky View';
-                }
+            if (document.body.classList.contains('dark-mode')) {
+                particles.style.display = 'block';
+                toggleButton.textContent = 'Normal View';
+            } else {
+                particles.style.display = 'none';
+                toggleButton.textContent = 'Sky View';
             }
-
-            // Expose functions for inline onclick attributes
-            window.slideLeft = slideLeft;
-            window.slideRight = slideRight;
-            window.toggleDarkMode = toggleDarkMode;
-        })();
+        }
     </script>
 </body>
 </html>
