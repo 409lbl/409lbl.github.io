@@ -108,6 +108,26 @@
             background-color: rgba(255, 255, 255, 0.7);
             color: #000000;
         }
+        
+        /* Pause button styles */
+        .pause-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .pause-button:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+        }
 
         .dark-mode-toggle {
             position: fixed;
@@ -160,10 +180,11 @@
                     <div class="slide"><img src="https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png" alt="Sky Image Render"></div>
                 </div>
                 <button class="slider-button right" onclick="slideRight()">&#10095;</button>
+                <button class="pause-button" onclick="toggleAutoSlide()">Pause</button>
             </div>
         </section>
 
-<!-- Services Offered Section -->
+        <!-- Services Offered Section -->
         <section>
             <h2>Services Offered</h2>
             <p>Here are the services I provide:</p>
@@ -221,7 +242,22 @@
         function autoSlide() {
             slideRight();
         }
-        setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+        
+        let autoSlideInterval = setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+        let isPaused = false;
+
+        // Pause/Resume auto-slide function
+        function toggleAutoSlide() {
+            const pauseButton = document.querySelector('.pause-button');
+            if (isPaused) {
+                autoSlideInterval = setInterval(autoSlide, 5000);
+                pauseButton.textContent = "Pause";
+            } else {
+                clearInterval(autoSlideInterval);
+                pauseButton.textContent = "Resume";
+            }
+            isPaused = !isPaused;
+        }
 
         // Smooth Scroll Effect
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -233,7 +269,7 @@
             });
         });
 
-         // Dark Mode Toggle
+        // Dark Mode Toggle
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
             const particles = document.getElementById('particles-js');
