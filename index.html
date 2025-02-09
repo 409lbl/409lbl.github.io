@@ -7,6 +7,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
+        .left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; /* Adjust the width as needed */
+  height: 100%;
+  background-color: #222;
+  padding-top: 20px;
+  z-index: 100; /* Ensures it stays above other elements */
+}
+
+.left-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.left-sidebar li {
+  margin: 20px 0;
+}
+
+.left-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.left-sidebar a:hover {
+  background-color: #444;
+  transition: background 0.3s;
+}
+        
         body {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
             font-family: 'Roboto', sans-serif;
