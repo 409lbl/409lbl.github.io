@@ -2,42 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>My Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  
+
   <style>
-    
+    /* Contact Section */
     #contact {
-      max-width: 600px;      /* Sets a maximum width for the form container */
-      margin: 50px auto;     /* Centers the container horizontally */
+      max-width: 600px;
+      margin: 50px auto;
       padding: 20px;
-      text-align: center;    /* Centers headings and paragraphs */
+      text-align: center;
     }
-    
     #contact h2 {
       font-family: 'Orbitron', sans-serif;
       margin-bottom: 20px;
     }
-    
     #contact form {
       display: flex;
       flex-direction: column;
-      align-items: center;   /* Center the form elements */
+      align-items: center;
       gap: 20px;
     }
-    
     #contact .form-group {
       width: 100%;
     }
-    
     #contact label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
       text-align: left;
     }
-    
     #contact input,
     #contact textarea {
       width: 100%;
@@ -46,7 +41,6 @@
       border-radius: 5px;
       box-sizing: border-box;
     }
-    
     #contact button {
       padding: 10px 20px;
       border: none;
@@ -56,70 +50,64 @@
       cursor: pointer;
       border-radius: 5px;
     }
-    
     #contact button:hover {
       background-color: #444;
     }
-    
-    /* Desktop Styles */
-    
+
+    /* Desktop Sidebar */
     .left-sidebar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 60px; /* Adjust the width as needed */
+      width: 60px; /* Adjust as needed */
       height: 100%;
       background-color: transparent;
-      padding-top: 10px;
-      z-index: 100; /* Ensures it stays above other elements */
+      padding-top: 20px;
+      z-index: 100;
+      /* Allows vertical scrolling so the bottom icon won't get cut off */
+      overflow-y: auto;
     }
-    
     .left-sidebar ul {
       list-style: none;
       padding: 0;
       margin: 0;
       text-align: center;
     }
-    
     .left-sidebar li {
       margin: 20px 0;
     }
-    
     .left-sidebar a {
       color: #000;
       text-decoration: none;
       display: block;
       font-size: 26px;
     }
-    
-    .social-text {
-      display: block;
-      margin-bottom: 4px;
-    }
-    
-    .social-icon {
-      display: block;
-      width: 100px;   /* Adjust these values as desired */
-      height: 100px;  /* Adjust these values as desired */
-      margin: 0 auto;
-    }
-    
     .left-sidebar a:hover {
       background-color: #444;
       transition: background 0.3s;
     }
-    
-    /* New classes for company names and stock prices */
+    .social-text {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .social-icon {
+      display: block;
+      width: 100px;  /* Icon width */
+      height: 100px; /* Icon height */
+      margin: 0 auto;
+    }
+
+    /* Classes for Company Names & Stock Prices */
     .company-name {
-      font-size: 16px; /* Adjust as needed */
+      font-size: 16px; /* Adjust as desired */
       display: block;
     }
-    
     .stock-price {
       font-size: 12px; /* Slightly smaller text */
       margin-top: 5px;
     }
-    
+
+    /* Base Body Styles */
     body {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       font-family: 'Roboto', sans-serif;
@@ -127,7 +115,8 @@
       background: #ffffff;
       transition: background 0.5s ease, color 0.5s ease;
     }
-    
+
+    /* Dark Mode */
     .dark-mode {
       color: #E0E0E0;
       background: linear-gradient(135deg, #000000, #0a1a2a),
@@ -135,27 +124,25 @@
       background-size: cover;
       background-blend-mode: overlay;
     }
-    
     .dark-mode #particles-js {
       display: block; /* Show particles when dark mode is enabled */
     }
-    
+
+    /* Layout for Main Content */
     header, main, footer {
       max-width: 800px;
       margin: auto;
       text-align: center;
     }
-    
     header h1, header h2 {
       font-family: 'Orbitron', sans-serif;
       color: #000000;
       margin: 10px 0;
     }
-    
+
     main section {
       margin: 20px 0;
     }
-    
     main h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
@@ -163,12 +150,12 @@
       text-transform: uppercase;
       margin-bottom: 15px;
     }
-    
     main a {
       color: #007BFF;
       text-decoration: none;
     }
-    
+
+    /* Slider Styles */
     .slider-container {
       position: relative;
       width: 100%;
@@ -178,23 +165,19 @@
       border: 2px solid #FFFFFF;
       border-radius: 10px;
     }
-    
     .slider {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-    
     .slide {
       min-width: 100%;
       text-align: center;
     }
-    
     .slide img {
       width: 100%;
       height: auto;
       display: block;
     }
-    
     .slider-button {
       position: absolute;
       top: 50%;
@@ -208,21 +191,18 @@
       z-index: 10;
       border-radius: 50%;
     }
-    
     .slider-button.left {
       left: 10px;
     }
-    
     .slider-button.right {
       right: 10px;
     }
-    
     .slider-button:hover {
       background-color: rgba(255, 255, 255, 0.7);
       color: #000000;
     }
-    
-    /* Pause button styles */
+
+    /* Pause Button Styles */
     .pause-button {
       position: absolute;
       bottom: 10px;
@@ -241,7 +221,7 @@
       background-color: rgba(255, 255, 255, 0.7);
       color: black;
     }
-    
+
     .dark-mode-toggle {
       position: fixed;
       top: 20px;
@@ -253,29 +233,24 @@
       cursor: pointer;
       border-radius: 5px;
     }
-    
     .dark-mode-toggle:hover {
       background: #444;
     }
-    
+
     footer {
       margin-top: 20px;
       font-size: 0.9em;
     }
-    
+
     /* Mobile Menu Styles */
-    
-    /* Hide mobile menu by default */
     .mobile-menu {
-      display: none;
+      display: none; /* hidden on desktop */
     }
-    
     @media only screen and (max-width: 768px) {
       /* Hide the desktop sidebar */
       .left-sidebar {
         display: none;
       }
-      
       /* Show the mobile menu container */
       .mobile-menu {
         display: block;
@@ -286,7 +261,6 @@
         background-color: #222;
         z-index: 200;
       }
-      
       /* Style the hamburger toggle button */
       .menu-toggle {
         background: none;
@@ -296,7 +270,6 @@
         padding: 10px;
         cursor: pointer;
       }
-      
       /* Mobile menu links */
       .mobile-menu-links {
         display: none; /* hidden by default */
@@ -304,37 +277,39 @@
         margin: 0;
         padding: 0;
         background-color: #222;
+        text-align: center; /* Center the icons and text on mobile */
       }
-      
       .mobile-menu-links li {
-        border-bottom: 1px solid #444;
+        margin: 20px 0;
       }
-      
-      .mobile-menu-links li a {
-        display: block;
-        padding: 10px;
+      .mobile-menu-links a {
         color: #fff;
         text-decoration: none;
+        display: block;
+        font-size: 18px; /* Slightly smaller text for mobile if you want */
       }
-      
-      .mobile-menu-links li a:hover {
+      .mobile-menu-links a:hover {
         background-color: #444;
       }
-      
-      /* Push down main content so it doesn't sit under the mobile menu */
+      /* Make sure main content isn't hidden behind the mobile menu */
       header, main, footer {
-        margin-top: 50px;  /* Adjust based on your mobile menu height */
+        margin-top: 60px;
+      }
+      .social-icon {
+        width: 80px;  /* Slightly smaller icons on mobile if desired */
+        height: 80px;
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Desktop Sidebar (shown on desktop only) -->
   <div class="left-sidebar">
     <p style="font-size: 12px; text-align: center; margin: 0; padding: 0;">Your Text Here</p>
     
-    <!-- Updated Sidebar List Items with Active Tickers -->
     <ul>
+      <!-- Each .sidebar-item has a data-ticker attribute -->
       <li class="sidebar-item" data-ticker="DEVA">
         <a href="https://deviantart.com" target="_blank">
           <span class="social-text company-name">Deviant Art</span>
@@ -370,17 +345,42 @@
   <div class="mobile-menu">
     <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
     <ul class="mobile-menu-links">
-      <li><a href="https://deviantart.com" target="_blank">Deviant Art</a></li>
-      <li><a href="https://www.fiverr.com/lbl419" target="_blank">Fiverr</a></li>
-      <li><a href="https://www.artstation.com" target="_blank">Art Station</a></li>
-      <li><a href="https://www.upwork.com/freelancers/~01ad30aa96232f73f1" target="_blank">Upwork</a></li>
+      <!-- Duplicate the same items for mobile -->
+      <li class="sidebar-item" data-ticker="DEVA">
+        <a href="https://deviantart.com" target="_blank">
+          <span class="social-text company-name">Deviant Art</span>
+          <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/deviantart%20logo.png" alt="Deviantart Icon">
+        </a>
+        <p class="stock-price">Loading stock price...</p>
+      </li>
+      <li class="sidebar-item" data-ticker="FVRR">
+        <a href="https://www.fiverr.com/lbl419" target="_blank">
+          <span class="social-text company-name">Fiverr</span>
+          <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/fiverr%20logo.png" alt="Fiverr Icon">
+        </a>
+        <p class="stock-price">Loading stock price...</p>
+      </li>
+      <li class="sidebar-item" data-ticker="ARTS">
+        <a href="https://www.artstation.com" target="_blank">
+          <span class="social-text company-name">Art Station</span>
+          <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/artstation%20logo.png" alt="ArtStation Icon">
+        </a>
+        <p class="stock-price">Loading stock price...</p>
+      </li>
+      <li class="sidebar-item" data-ticker="UPWK">
+        <a href="https://www.upwork.com/freelancers/~01ad30aa96232f73f1" target="_blank">
+          <span class="social-text company-name">Upwork</span>
+          <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/upwork%20logo.png" alt="Upwork Icon">
+        </a>
+        <p class="stock-price">Loading stock price...</p>
+      </li>
     </ul>
   </div>
   
   <div id="particles-js"></div>
   
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">Sky View</button>
-    
+  
   <header>
     <video width="300" autoplay loop muted playsinline>
       <source src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/0000-0333.mp4" type="video/mp4">
@@ -466,34 +466,28 @@
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
       console.log('Particles.js loaded');
     });
-  
+
     // Auto-Slideshow
     let currentIndex = 0;
     const slider = document.querySelector('.slider');
     const totalSlides = document.querySelectorAll('.slide').length;
-  
+
     function slideLeft() {
       currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
       updateSlider();
     }
-  
     function slideRight() {
       currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
       updateSlider();
     }
-  
     function updateSlider() {
       slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-  
     function autoSlide() {
       slideRight();
     }
-    
     let autoSlideInterval = setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
     let isPaused = false;
-  
-    // Pause/Resume auto-slide function
     function toggleAutoSlide() {
       const pauseButton = document.querySelector('.pause-button');
       if (isPaused) {
@@ -505,17 +499,17 @@
       }
       isPaused = !isPaused;
     }
-  
+
     // Toggle Mobile Menu
     function toggleMobileMenu() {
-      var menuLinks = document.querySelector('.mobile-menu-links');
+      const menuLinks = document.querySelector('.mobile-menu-links');
       if (menuLinks.style.display === 'block') {
         menuLinks.style.display = 'none';
       } else {
         menuLinks.style.display = 'block';
       }
     }
-  
+
     // Smooth Scroll Effect
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -525,13 +519,13 @@
         });
       });
     });
-  
+
     // Dark Mode Toggle
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const particles = document.getElementById('particles-js');
       const toggleButton = document.querySelector('.dark-mode-toggle');
-  
+
       if (document.body.classList.contains('dark-mode')) {
         particles.style.display = 'block';
         toggleButton.textContent = 'Normal View';
@@ -540,13 +534,13 @@
         toggleButton.textContent = 'Sky View';
       }
     }
-  
-    // New Code for Active Stock Tickers for Each Company
-    const apiKey = 'cunvmq1r01qokt741m80cunvmq1r01qokt741m8g';  // Your Finnhub API key
-  
-    // Select all sidebar items that have a data-ticker attribute
+
+    // Fetch Stock Prices for Both Desktop Sidebar & Mobile Menu
+    const apiKey = 'YOUR_FINNHUB_API_KEY'; // Replace with your actual Finnhub API key
+
+    // Grab all .sidebar-item elements that have data-ticker
     const sidebarItems = document.querySelectorAll('.sidebar-item[data-ticker]');
-  
+
     sidebarItems.forEach(async (item) => {
       const ticker = item.getAttribute('data-ticker');
       try {
@@ -562,7 +556,7 @@
       }
     });
   </script>
-  
+
   <section id="contact">
     <h2>Contact Me</h2>
     <p>Have a question or want to collaborate?</p>
