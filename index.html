@@ -7,63 +7,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   
   <style>
+    #contact {
+      max-width: 600px;      /* Sets a maximum width for the form container */
+      margin: 50px auto;     /* Centers the container horizontally */
+      padding: 20px;
+      text-align: center;    /* Centers headings and paragraphs */
+    }
     
-#contact {
-  max-width: 600px;      /* Sets a maximum width for the form container */
-  margin: 50px auto;     /* Centers the container horizontally */
-  padding: 20px;
-  text-align: center;    /* Centers headings and paragraphs */
-}
-
-#contact h2 {
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom: 20px;
-}
-
-#contact form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* Center the form elements */
-  gap: 20px;
-}
-
-#contact .form-group {
-  width: 100%;
-}
-
-#contact label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-#contact input,
-#contact textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-#contact button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #222;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#contact button:hover {
-  background-color: #444;
-}
-
+    #contact h2 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;   /* Center the form elements */
+      gap: 20px;
+    }
+    
+    #contact .form-group {
+      width: 100%;
+    }
+    
+    #contact label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+    
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    #contact button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    #contact button:hover {
+      background-color: #444;
+    }
     
     /* Desktop Styles */
-
+    
     .left-sidebar {
       position: fixed;
       top: 0;
@@ -130,10 +128,11 @@
       display: block; /* Show particles when dark mode is enabled */
     }
     
+    /* Modified to left-align the content */
     header, main, footer {
       max-width: 800px;
-      margin: auto;
-      text-align: center;
+      margin: 20px 0 20px 80px; /* Left margin to clear the 60px sidebar plus extra spacing */
+      text-align: left;
     }
     
     header h1, header h2 {
@@ -227,6 +226,7 @@
       border-radius: 5px;
       z-index: 10;
     }
+    
     .pause-button:hover {
       background-color: rgba(255, 255, 255, 0.7);
       color: black;
