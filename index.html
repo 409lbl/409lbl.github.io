@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>My Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
+  
   <style>
     /* Contact Section */
     #contact {
@@ -59,13 +59,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 60px; /* Adjust as needed */
+      width: 60px; /* unchanged */
       height: 100%;
       background-color: transparent;
-      padding-top: 20px;
+      padding-top: 10px; /* Reduced from 20px */
       z-index: 100;
-      /* Allows vertical scrolling so the bottom icon won't get cut off */
-      overflow-y: auto;
+      /* Removed overflow-y so no scroll bar appears */
     }
     .left-sidebar ul {
       list-style: none;
@@ -74,7 +73,7 @@
       text-align: center;
     }
     .left-sidebar li {
-      margin: 20px 0;
+      margin: 10px 0; /* Reduced from 20px */
     }
     .left-sidebar a {
       color: #000;
@@ -92,43 +91,43 @@
     }
     .social-icon {
       display: block;
-      width: 100px;  /* Icon width */
-      height: 100px; /* Icon height */
+      width: 80px;  /* Reduced from 100px */
+      height: 80px; /* Reduced from 100px */
       margin: 0 auto;
     }
 
     /* Classes for Company Names & Stock Prices */
     .company-name {
-      font-size: 16px; /* Adjust as desired */
+      font-size: 16px;
       display: block;
     }
     .stock-price {
-      font-size: 12px; /* Slightly smaller text */
+      font-size: 12px;
       margin-top: 5px;
     }
 
     /* Base Body Styles */
     body {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
       font-family: 'Roboto', sans-serif;
-      color: #000000;
-      background: #ffffff;
+      color: #000;
+      background: #fff;
       transition: background 0.5s ease, color 0.5s ease;
     }
 
     /* Dark Mode */
     .dark-mode {
       color: #E0E0E0;
-      background: linear-gradient(135deg, #000000, #0a1a2a),
+      background: linear-gradient(135deg, #000, #0a1a2a),
                   url('https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png') no-repeat center center fixed;
       background-size: cover;
       background-blend-mode: overlay;
     }
     .dark-mode #particles-js {
-      display: block; /* Show particles when dark mode is enabled */
+      display: block;
     }
 
-    /* Layout for Main Content */
+    /* Main Content Layout */
     header, main, footer {
       max-width: 800px;
       margin: auto;
@@ -136,17 +135,16 @@
     }
     header h1, header h2 {
       font-family: 'Orbitron', sans-serif;
-      color: #000000;
+      color: #000;
       margin: 10px 0;
     }
-
     main section {
       margin: 20px 0;
     }
     main h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
-      color: #000000;
+      color: #000;
       text-transform: uppercase;
       margin-bottom: 15px;
     }
@@ -162,7 +160,7 @@
       max-width: 800px;
       overflow: hidden;
       margin: 20px auto;
-      border: 2px solid #FFFFFF;
+      border: 2px solid #FFF;
       border-radius: 10px;
     }
     .slider {
@@ -182,9 +180,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0,0,0,0.7);
       border: none;
-      color: #FFFFFF;
+      color: #FFF;
       padding: 10px;
       cursor: pointer;
       font-size: 18px;
@@ -198,18 +196,16 @@
       right: 10px;
     }
     .slider-button:hover {
-      background-color: rgba(255, 255, 255, 0.7);
-      color: #000000;
+      background-color: rgba(255,255,255,0.7);
+      color: #000;
     }
-
-    /* Pause Button Styles */
     .pause-button {
       position: absolute;
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
+      background-color: rgba(0,0,0,0.7);
+      color: #FFF;
       padding: 8px 16px;
       border: none;
       cursor: pointer;
@@ -218,16 +214,15 @@
       z-index: 10;
     }
     .pause-button:hover {
-      background-color: rgba(255, 255, 255, 0.7);
-      color: black;
+      background-color: rgba(255,255,255,0.7);
+      color: #000;
     }
-
     .dark-mode-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
       background: #222;
-      color: #fff;
+      color: #FFF;
       padding: 10px 15px;
       border: none;
       cursor: pointer;
@@ -236,80 +231,72 @@
     .dark-mode-toggle:hover {
       background: #444;
     }
-
     footer {
       margin-top: 20px;
       font-size: 0.9em;
     }
 
     /* Mobile Menu Styles */
-    .mobile-menu {
-      display: none; /* hidden on desktop */
-    }
     @media only screen and (max-width: 768px) {
-      /* Hide the desktop sidebar */
+      /* Hide desktop sidebar */
       .left-sidebar {
         display: none;
       }
-      /* Show the mobile menu container */
+      /* Mobile Menu: Narrower & left-aligned */
       .mobile-menu {
         display: block;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 80%;  /* Reduced from 100% */
         background-color: #222;
         z-index: 200;
       }
-      /* Style the hamburger toggle button */
       .menu-toggle {
         background: none;
         border: none;
         font-size: 24px;
-        color: #fff;
+        color: #FFF;
         padding: 10px;
         cursor: pointer;
       }
-      /* Mobile menu links */
       .mobile-menu-links {
         display: none; /* hidden by default */
         list-style: none;
         margin: 0;
         padding: 0;
         background-color: #222;
-        text-align: center; /* Center the icons and text on mobile */
+        text-align: center;
       }
       .mobile-menu-links li {
-        margin: 20px 0;
+        margin: 10px 0;  /* Reduced spacing */
       }
       .mobile-menu-links a {
-        color: #fff;
+        color: #FFF;
         text-decoration: none;
         display: block;
-        font-size: 18px; /* Slightly smaller text for mobile if you want */
+        font-size: 16px; /* Slightly smaller text */
       }
       .mobile-menu-links a:hover {
         background-color: #444;
       }
-      /* Make sure main content isn't hidden behind the mobile menu */
       header, main, footer {
         margin-top: 60px;
       }
+      /* Slightly smaller icons on mobile */
       .social-icon {
-        width: 80px;  /* Slightly smaller icons on mobile if desired */
-        height: 80px;
+        width: 70px;
+        height: 70px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Desktop Sidebar (shown on desktop only) -->
+  <!-- Desktop Sidebar -->
   <div class="left-sidebar">
     <p style="font-size: 12px; text-align: center; margin: 0; padding: 0;">Your Text Here</p>
-    
     <ul>
-      <!-- Each .sidebar-item has a data-ticker attribute -->
       <li class="sidebar-item" data-ticker="DEVA">
         <a href="https://deviantart.com" target="_blank">
           <span class="social-text company-name">Deviant Art</span>
@@ -340,12 +327,11 @@
       </li>
     </ul>
   </div>
-  
-  <!-- Mobile Menu (shown on mobile only) -->
+
+  <!-- Mobile Menu -->
   <div class="mobile-menu">
     <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
     <ul class="mobile-menu-links">
-      <!-- Duplicate the same items for mobile -->
       <li class="sidebar-item" data-ticker="DEVA">
         <a href="https://deviantart.com" target="_blank">
           <span class="social-text company-name">Deviant Art</span>
@@ -376,11 +362,10 @@
       </li>
     </ul>
   </div>
-  
+
   <div id="particles-js"></div>
-  
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">Sky View</button>
-  
+
   <header>
     <video width="300" autoplay loop muted playsinline>
       <source src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/0000-0333.mp4" type="video/mp4">
@@ -392,7 +377,7 @@
     <p>This passion extends beyond 3D modeling into web design and interactive digital media, further expanding the connection between art and technology. Every model, render, and interface I build is a step toward the digital future I envision.</p>
     <h2>Please, Explore My 3D modeling portfolio: <a href="https://github.com/409lbl/Blender-Portfolio">GitHub - Blender Portfolio</a></h2>
   </header>
-  
+
   <main>
     <section>
       <h2>Featured Work</h2>
@@ -466,12 +451,12 @@
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
       console.log('Particles.js loaded');
     });
-
+  
     // Auto-Slideshow
     let currentIndex = 0;
     const slider = document.querySelector('.slider');
     const totalSlides = document.querySelectorAll('.slide').length;
-
+  
     function slideLeft() {
       currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
       updateSlider();
@@ -486,7 +471,7 @@
     function autoSlide() {
       slideRight();
     }
-    let autoSlideInterval = setInterval(autoSlide, 5000); // Auto-slide every 5 seconds
+    let autoSlideInterval = setInterval(autoSlide, 5000);
     let isPaused = false;
     function toggleAutoSlide() {
       const pauseButton = document.querySelector('.pause-button');
@@ -499,7 +484,7 @@
       }
       isPaused = !isPaused;
     }
-
+  
     // Toggle Mobile Menu
     function toggleMobileMenu() {
       const menuLinks = document.querySelector('.mobile-menu-links');
@@ -509,23 +494,20 @@
         menuLinks.style.display = 'block';
       }
     }
-
+  
     // Smooth Scroll Effect
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
-
+  
     // Dark Mode Toggle
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const particles = document.getElementById('particles-js');
       const toggleButton = document.querySelector('.dark-mode-toggle');
-
       if (document.body.classList.contains('dark-mode')) {
         particles.style.display = 'block';
         toggleButton.textContent = 'Normal View';
@@ -534,13 +516,11 @@
         toggleButton.textContent = 'Sky View';
       }
     }
-
-    // Fetch Stock Prices for Both Desktop Sidebar & Mobile Menu
-    const apiKey = 'YOUR_FINNHUB_API_KEY'; // Replace with your actual Finnhub API key
-
-    // Grab all .sidebar-item elements that have data-ticker
+  
+    // Fetch Stock Prices for All Sidebar Items (Desktop & Mobile)
+    const apiKey = 'YOUR_FINNHUB_API_KEY'; // Replace with your actual API key
+  
     const sidebarItems = document.querySelectorAll('.sidebar-item[data-ticker]');
-
     sidebarItems.forEach(async (item) => {
       const ticker = item.getAttribute('data-ticker');
       try {
@@ -556,7 +536,7 @@
       }
     });
   </script>
-
+  
   <section id="contact">
     <h2>Contact Me</h2>
     <p>Have a question or want to collaborate?</p>
