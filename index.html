@@ -35,11 +35,11 @@
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  -align: left;
+  text-align: left;
 }
 
 #contact input,
-#contact area {
+#contact textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -79,7 +79,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      -align: center;
+      text-align: center;
     }
     
     .left-sidebar li {
@@ -88,12 +88,12 @@
     
     .left-sidebar a {
       color: #000;
-      -decoration: none;
+      text-decoration: none;
       display: block;
       font-size: 26px;
     }
     
-    .social- {
+    .social-text {
       display: block;
       margin-bottom: 4px;
     }
@@ -111,7 +111,7 @@
     }
     
     body {
-      -shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       font-family: 'Roboto', sans-serif;
       color: #000000;
       background: #ffffff;
@@ -133,7 +133,7 @@
     header, main, footer {
       max-width: 800px;
       margin: auto;
-      -align: center;
+      text-align: center;
     }
     
     header h1, header h2 {
@@ -150,13 +150,13 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
       color: #000000;
-      -transform: uppercase;
+      text-transform: uppercase;
       margin-bottom: 15px;
     }
     
     main a {
       color: #007BFF;
-      -decoration: none;
+      text-decoration: none;
     }
     
     .slider-container {
@@ -176,7 +176,7 @@
     
     .slide {
       min-width: 100%;
-      -align: center;
+      text-align: center;
     }
     
     .slide img {
@@ -222,7 +222,7 @@
       color: white;
       padding: 8px 16px;
       border: none;
-      cursor: pointer;a
+      cursor: pointer;
       font-size: 16px;
       border-radius: 5px;
       z-index: 10;
@@ -304,7 +304,7 @@
         display: block;
         padding: 10px;
         color: #fff;
-        -decoration: none;
+        text-decoration: none;
       }
       
       .mobile-menu-links li a:hover {
@@ -321,14 +321,15 @@
 <body>
   <!-- Desktop Sidebar (shown on desktop only) -->
   <div class="left-sidebar">
-    <p style="font-size: 12px; -align: center; margin: 0; padding: 0;">Your text Here</p>
-      <!-- Live Stock Price Section in Sidebar -->
-  <div id="stock-price" style="font-size: 10px; text-align: center; margin: 10px 0;">
-    Loading stock price...
-  </div>
-  <button onclick="updateStockPrice()" style="display:block; margin: 0 auto; font-size: 10px;">Refresh</button>
-  <ul>
-    <!-- Social links -->
+    <p style="font-size: 12px; text-align: center; margin: 0; padding: 0;">Your Text Here</p>
+    
+    <!-- BEGIN: Live Stock Price Added to Sidebar -->
+    <div id="stock-price" style="font-size: 10px; text-align: center; margin: 10px 0;">
+      Loading stock price...
+    </div>
+    <button onclick="updateStockPrice()" style="display: block; margin: 0 auto; font-size: 10px;">Refresh</button>
+    <!-- END: Live Stock Price Section -->
+    
     <ul>
       <li>
         <a href="https://deviantart.com" target="_blank">
@@ -373,9 +374,9 @@
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">Sky View</button>
     
   <header>
-      <video width="300" autoplay loop muted playsinline>
-  <source src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/0000-0333.mp4" type="video/mp4">
-</video>
+    <video width="300" autoplay loop muted playsinline>
+      <source src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/0000-0333.mp4" type="video/mp4">
+    </video>
     <h1>Triangle ^ Foundation ^ Systems</h1>
     <h2>Bitcoin is the Future</h2>
     <p>The lines between the digital and physical worlds are blurring, and I am at the forefront of that revolution. I see a future where AI-driven automatons, immersive virtual landscapes, and digital beings live alongside us—bridging creativity with technology to reshape reality.</p>
@@ -403,27 +404,27 @@
   
     <!-- Services Offered Section -->
     <section>
-  <h2>Services Offered</h2>
-  <p>Unleash the full potential of your creative vision with my specialized digital services:</p>
-  <ul>
-    <li>
-      <strong>3D Modeling &amp; Rendering (Blender):</strong>
-      Transform your ideas into stunning, photorealistic 3D visuals that captivate and inspire.
-    </li>
-    <li>
-      <strong>3D Model Rigging &amp; Texturing:</strong>
-      Breathe life into your characters and objects with precise rigging and richly detailed textures.
-    </li>
-    <li>
-      <strong>Website Design using GitHub:</strong>
-      Build modern, responsive websites that combine clean code with innovative design, hosted seamlessly on GitHub.
-    </li>
-    <li>
-      <strong>Animation &amp; Motion Graphics:</strong>
-      Elevate your story with dynamic animations and motion graphics that engage audiences and bring ideas to motion.
-    </li>
-  </ul>
-</section>
+      <h2>Services Offered</h2>
+      <p>Unleash the full potential of your creative vision with my specialized digital services:</p>
+      <ul>
+        <li>
+          <strong>3D Modeling &amp; Rendering (Blender):</strong>
+          Transform your ideas into stunning, photorealistic 3D visuals that captivate and inspire.
+        </li>
+        <li>
+          <strong>3D Model Rigging &amp; Texturing:</strong>
+          Breathe life into your characters and objects with precise rigging and richly detailed textures.
+        </li>
+        <li>
+          <strong>Website Design using GitHub:</strong>
+          Build modern, responsive websites that combine clean code with innovative design, hosted seamlessly on GitHub.
+        </li>
+        <li>
+          <strong>Animation &amp; Motion Graphics:</strong>
+          Elevate your story with dynamic animations and motion graphics that engage audiences and bring ideas to motion.
+        </li>
+      </ul>
+    </section>
   
     <!-- Inspirations Section -->
     <section>
@@ -436,13 +437,13 @@
       </p>
       <p>
         <a href="https://www.coindesk.com/" target="_blank">
-          <strong>CoinDesk</strong></strong>
+          <strong>CoinDesk</strong>
         </a> - Heading the charge in cryptocurrency. Good to keep up on.
       </p>
       <p>
         <a href="https://www.bloomberg.com/btv/series/bloomberg-technology" target="_blank">
           <strong>Bloomberg Technology</strong>
-        </a> - A cross between Business and Technology
+        </a> - A cross between Business and Technology.
       </p>
     </section>
   </main>
@@ -531,30 +532,49 @@
         toggleButton.textContent = 'Sky View';
       }
     }
+  
+    // New Code for Live Stock Price (Manual Refresh)
+    const apiKey = 'YOUR_FINNHUB_API_KEY';  // Replace with your actual API key
+    const symbol = 'AAPL'; // Change this to your desired stock ticker
+  
+    async function updateStockPrice() {
+      try {
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`);
+        const data = await response.json();
+        document.getElementById('stock-price').textContent =
+          `Current ${symbol} Stock Price: $${data.c}`;
+      } catch (error) {
+        console.error('Error fetching stock price:', error);
+        document.getElementById('stock-price').textContent =
+          'Error fetching stock price.';
+      }
+    }
+  
+    // Fetch the stock price on page load
+    updateStockPrice();
   </script>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <p>Have a question or want to collaborate?</p>
-  <form action="https://formspree.io/f/mnnjzwrk" method="POST">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <div class="form-group">
-      <button type="submit">Send Message</button>
-    </div>
-  </form>
-</section>
-
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Have a question or want to collaborate?</p>
+    <form action="https://formspree.io/f/mnnjzwrk" method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </section>
 
 </body>
 </html>
