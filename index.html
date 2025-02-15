@@ -35,11 +35,11 @@
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  text-align: left;
+  -align: left;
 }
 
 #contact input,
-#contact textarea {
+#contact area {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -79,7 +79,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      text-align: center;
+      -align: center;
     }
     
     .left-sidebar li {
@@ -88,12 +88,12 @@
     
     .left-sidebar a {
       color: #000;
-      text-decoration: none;
+      -decoration: none;
       display: block;
       font-size: 26px;
     }
     
-    .social-text {
+    .social- {
       display: block;
       margin-bottom: 4px;
     }
@@ -111,7 +111,7 @@
     }
     
     body {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      -shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
       font-family: 'Roboto', sans-serif;
       color: #000000;
       background: #ffffff;
@@ -133,7 +133,7 @@
     header, main, footer {
       max-width: 800px;
       margin: auto;
-      text-align: center;
+      -align: center;
     }
     
     header h1, header h2 {
@@ -150,13 +150,13 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
       color: #000000;
-      text-transform: uppercase;
+      -transform: uppercase;
       margin-bottom: 15px;
     }
     
     main a {
       color: #007BFF;
-      text-decoration: none;
+      -decoration: none;
     }
     
     .slider-container {
@@ -176,7 +176,7 @@
     
     .slide {
       min-width: 100%;
-      text-align: center;
+      -align: center;
     }
     
     .slide img {
@@ -222,7 +222,7 @@
       color: white;
       padding: 8px 16px;
       border: none;
-      cursor: pointer;
+      cursor: pointer;a
       font-size: 16px;
       border-radius: 5px;
       z-index: 10;
@@ -304,7 +304,7 @@
         display: block;
         padding: 10px;
         color: #fff;
-        text-decoration: none;
+        -decoration: none;
       }
       
       .mobile-menu-links li a:hover {
@@ -321,7 +321,14 @@
 <body>
   <!-- Desktop Sidebar (shown on desktop only) -->
   <div class="left-sidebar">
-    <p style="font-size: 12px; text-align: center; margin: 0; padding: 0;">Your Text Here</p>
+    <p style="font-size: 12px; -align: center; margin: 0; padding: 0;">Your text Here</p>
+      <!-- Live Stock Price Section in Sidebar -->
+  <div id="stock-price" style="font-size: 10px; text-align: center; margin: 10px 0;">
+    Loading stock price...
+  </div>
+  <button onclick="updateStockPrice()" style="display:block; margin: 0 auto; font-size: 10px;">Refresh</button>
+  <ul>
+    <!-- Social links -->
     <ul>
       <li>
         <a href="https://deviantart.com" target="_blank">
