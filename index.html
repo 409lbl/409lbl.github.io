@@ -8,62 +8,61 @@
   
   <style>
     
-#contact {
-  max-width: 600px;      /* Sets a maximum width for the form container */
-  margin: 50px auto;     /* Centers the container horizontally */
-  padding: 20px;
-  text-align: center;    /* Centers headings and paragraphs */
-}
-
-#contact h2 {
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom: 20px;
-}
-
-#contact form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* Center the form elements */
-  gap: 20px;
-}
-
-#contact .form-group {
-  width: 100%;
-}
-
-#contact label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-#contact input,
-#contact textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-#contact button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #222;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#contact button:hover {
-  background-color: #444;
-}
-
+    #contact {
+      max-width: 600px;      /* Sets a maximum width for the form container */
+      margin: 50px auto;     /* Centers the container horizontally */
+      padding: 20px;
+      text-align: center;    /* Centers headings and paragraphs */
+    }
+    
+    #contact h2 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;   /* Center the form elements */
+      gap: 20px;
+    }
+    
+    #contact .form-group {
+      width: 100%;
+    }
+    
+    #contact label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+    
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    #contact button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    #contact button:hover {
+      background-color: #444;
+    }
     
     /* Desktop Styles */
-
+    
     .left-sidebar {
       position: fixed;
       top: 0;
@@ -108,6 +107,17 @@
     .left-sidebar a:hover {
       background-color: #444;
       transition: background 0.3s;
+    }
+    
+    /* New classes for company names and stock prices */
+    .company-name {
+      font-size: 16px; /* Adjust as needed */
+      display: block;
+    }
+    
+    .stock-price {
+      font-size: 12px; /* Slightly smaller text */
+      margin-top: 5px;
     }
     
     body {
@@ -323,37 +333,35 @@
   <div class="left-sidebar">
     <p style="font-size: 12px; text-align: center; margin: 0; padding: 0;">Your Text Here</p>
     
-    <!-- BEGIN: Live Stock Price Added to Sidebar -->
-    <div id="stock-price" style="font-size: 10px; text-align: center; margin: 10px 0;">
-      Loading stock price...
-    </div>
-    <button onclick="updateStockPrice()" style="display: block; margin: 0 auto; font-size: 10px;">Refresh</button>
-    <!-- END: Live Stock Price Section -->
-    
+    <!-- Updated Sidebar List Items with Active Tickers -->
     <ul>
-      <li>
+      <li class="sidebar-item" data-ticker="DEVA">
         <a href="https://deviantart.com" target="_blank">
-          <span class="social-text">Deviant Art</span>
+          <span class="social-text company-name">Deviant Art</span>
           <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/deviantart%20logo.png" alt="Deviantart Icon">
         </a>
+        <p class="stock-price">Loading stock price...</p>
       </li>
-      <li>
+      <li class="sidebar-item" data-ticker="FVRR">
         <a href="https://www.fiverr.com/lbl419" target="_blank">
-          <span class="social-text">Fiverr</span>
+          <span class="social-text company-name">Fiverr</span>
           <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/fiverr%20logo.png" alt="Fiverr Icon">
         </a>
+        <p class="stock-price">Loading stock price...</p>
       </li>
-      <li>
+      <li class="sidebar-item" data-ticker="ARTS">
         <a href="https://www.artstation.com" target="_blank">
-          <span class="social-text">Art Station</span>
+          <span class="social-text company-name">Art Station</span>
           <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/artstation%20logo.png" alt="ArtStation Icon">
         </a>
+        <p class="stock-price">Loading stock price...</p>
       </li>
-      <li>
+      <li class="sidebar-item" data-ticker="UPWK">
         <a href="https://www.upwork.com/freelancers/~01ad30aa96232f73f1" target="_blank">
-          <span class="social-text">Upwork</span>
+          <span class="social-text company-name">Upwork</span>
           <img class="social-icon" src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/upwork%20logo.png" alt="Upwork Icon">
         </a>
+        <p class="stock-price">Loading stock price...</p>
       </li>
     </ul>
   </div>
@@ -533,27 +541,28 @@
       }
     }
   
-    // New Code for Live Stock Price (Manual Refresh)
-    const apiKey = 'cunvmq1r01qokt741m80cunvmq1r01qokt741m8g';  // Replace with your actual API key
-    const symbol = 'AAPL'; // Change this to your desired stock ticker
+    // New Code for Active Stock Tickers for Each Company
+    const apiKey = 'cunvmq1r01qokt741m80cunvmq1r01qokt741m8g';  // Your Finnhub API key
   
-    async function updateStockPrice() {
+    // Select all sidebar items that have a data-ticker attribute
+    const sidebarItems = document.querySelectorAll('.sidebar-item[data-ticker]');
+  
+    sidebarItems.forEach(async (item) => {
+      const ticker = item.getAttribute('data-ticker');
       try {
-        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`);
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${apiKey}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        document.getElementById('stock-price').textContent =
-          `Current ${symbol} Stock Price: $${data.c}`;
+        const priceElement = item.querySelector('.stock-price');
+        priceElement.textContent = `Stock Price: $${data.c}`;
       } catch (error) {
-        console.error('Error fetching stock price:', error);
-        document.getElementById('stock-price').textContent =
-          'Error fetching stock price.';
+        console.error(`Error fetching stock price for ${ticker}:`, error);
+        const priceElement = item.querySelector('.stock-price');
+        priceElement.textContent = 'Error loading price';
       }
-    }
-  
-    // Fetch the stock price on page load
-    updateStockPrice();
+    });
   </script>
-
+  
   <section id="contact">
     <h2>Contact Me</h2>
     <p>Have a question or want to collaborate?</p>
