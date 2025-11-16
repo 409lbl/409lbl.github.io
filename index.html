@@ -104,23 +104,36 @@
   <script>
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const particles = document.getElementById('particles-js');
-      const toggleButton = document.querySelector('.dark-mode-toggle');
+function toggleDarkMode() {
+  const particles = document.getElementById('particles-js');
+  const toggleButton = document.querySelector('.dark-mode-toggle');
 
-      if (document.body.classList.contains('dark-mode')) {
-        particles.style.display = 'block';
-        toggleButton.textContent = 'Nothing?';
-      } else {
-        particles.style.display = 'none';
-        toggleButton.textContent = 'Its gone now';
-      }
+  const isDark = document.body.classList.toggle('dark-mode');
+
+  if (isDark) {
+    particles.style.display = 'block';
+
+    // FIRST TIME EVER → show “Nothing?”
+    if (firstTimeDark) {
+      toggleButton.textContent = 'Nothing?';
+      firstTimeDark = false;  // Never use this again
+    } 
+    // ALL FUTURE DARK MODES → show “Its gone now”
+    else {
+      toggleButton.textContent = 'Its gone now';
     }
+
+  } else {
+    particles.style.display = 'none';
+    toggleButton.textContent = 'See Anything?';
+  }
+}
+
   </script>
 
 </body>
 </html>
+
 
 
 
