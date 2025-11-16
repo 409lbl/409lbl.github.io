@@ -104,53 +104,46 @@
   <script>
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
 
-let firstTimeDark = true;
-let sadMode = false;
+    let firstTimeDark = true;
+    let sadMode = false;
 
-function toggleDarkMode() {
-  const particles = document.getElementById('particles-js');
-  const toggleButton = document.querySelector('.dark-mode-toggle');
+    function toggleDarkMode() {
+      const particles = document.getElementById('particles-js');
+      const toggleButton = document.querySelector('.dark-mode-toggle');
 
-  const isDark = document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.toggle('dark-mode');
 
-  // PHASE 3: permanent sad mode
-  if (sadMode) {
-    particles.style.display = isDark ? 'block' : 'none';
-    toggleButton.textContent = ':(';
-    return;
-  }
+      // PHASE 3: permanent shrug mode
+      if (sadMode) {
+        particles.style.display = isDark ? 'block' : 'none';
+        toggleButton.textContent = '¯\\_(ツ)_/¯';
+        return;
+      }
 
-  // PHASE 1 and 2
-  if (isDark) {
-    particles.style.display = 'block';
+      // PHASE 1 & 2
+      if (isDark) {
+        particles.style.display = 'block';
 
-    if (firstTimeDark) {
-      // FIRST DARK MODE EVER → “Nothing?”
-      toggleButton.textContent = 'Nothing?';
-      firstTimeDark = false;
-    } else {
-      // FUTURE DARK MODES → “Its gone now”
-      toggleButton.textContent = 'Its gone now';
-      
-      // Activate PHASE 3 from next click onward
-      sadMode = true;
+        if (firstTimeDark) {
+          // FIRST TIME DARK → “Nothing?”
+          toggleButton.textContent = 'Nothing?';
+          firstTimeDark = false;
+        } else {
+          // SECOND TIME DARK → “Its gone now”
+          toggleButton.textContent = 'Its gone now';
+
+          // Enable shrug mode AFTER this click completes
+          setTimeout(() => {
+            sadMode = true;
+          }, 0);
+        }
+
+      } else {
+        particles.style.display = 'none';
+        toggleButton.textContent = 'See Anything?';
+      }
     }
-
-  } else {
-    particles.style.display = 'none';
-    toggleButton.textContent = 'See Anything?';
-  }
-}
-
-
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
