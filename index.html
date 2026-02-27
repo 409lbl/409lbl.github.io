@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  
-  <style>
 
+  <style>
     @media only screen and (max-width: 768px) {
-      header video {
-        display: none;
-      }
+      header video { display: none; }
     }
 
     body {
@@ -25,8 +22,8 @@
     .dark-mode {
       color: #E0E0E0;
       background: linear-gradient(135deg, #000000, #0a1a2a),
-                  url('https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png') 
-                  no-repeat center center fixed;
+        url('https://raw.githubusercontent.com/409lbl/Blender-Portfolio/main/sky%20image.png')
+        no-repeat center center fixed;
       background-size: cover;
       background-blend-mode: overlay;
     }
@@ -43,21 +40,33 @@
     }
 
     /* ===== COUNTDOWN STYLE ===== */
+    .countdown-wrap {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+    }
+
+    #countdown-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+
     #countdown {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.4rem;
-      margin-top: 10px;
+      font-size: 1.5rem;
       letter-spacing: 2px;
+      font-variant-numeric: tabular-nums; /* makes digits feel smoother */
     }
 
     @media only screen and (max-width: 768px) {
-      header, main, footer {
-        margin-top: 50px;
-      }
-
-      #countdown {
-        font-size: 1.1rem;
-      }
+      header, main, footer { margin-top: 50px; }
+      #countdown { font-size: 1.15rem; }
+      #countdown-label { font-size: 0.85rem; }
     }
 
     .dark-mode-toggle {
@@ -73,44 +82,166 @@
       z-index: 1000;
     }
 
-    .dark-mode-toggle:hover {
-      background: #444;
-    }
+    .dark-mode-toggle:hover { background: #444; }
 
     #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: -1;
       display: none;
     }
 
+    /* ===== SLIDESHOW ===== */
+    .slideshow {
+      margin: 30px auto 0;
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      background: rgba(0,0,0,0.06);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 420px;
+      position: relative;
+    }
+
+    .slide.active { display: block; }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* change to "contain" if you want no cropping */
+      display: block;
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 12px 14px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.65));
+      color: #fff;
+      text-align: left;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 5;
+      font-size: 20px;
+      line-height: 44px;
+    }
+
+    .slide-btn:hover { background: rgba(0,0,0,0.75); }
+    .slide-btn.prev { left: 12px; }
+    .slide-btn.next { right: 12px; }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 0 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.18);
+      cursor: pointer;
+    }
+
+    .dark-mode .dot {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.18);
+    }
+
+    .dot.active {
+      transform: scale(1.15);
+      background: rgba(0,0,0,0.5);
+    }
+    .dark-mode .dot.active { background: rgba(255,255,255,0.55); }
+
+    @media only screen and (max-width: 768px) {
+      .slide { height: 280px; }
+    }
   </style>
 </head>
 
 <body>
-
   <div id="particles-js"></div>
-  
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">See Anything?</button>
 
   <header>
     <video width="300" autoplay loop muted playsinline>
       <source src="https://raw.githubusercontent.com/409lbl/409lbl.github.io/main/0000-0333.mp4" type="video/mp4">
     </video>
+
     <h1>Triangle ^ Foundation ^ Systems ^</h1>
     <h2>Crypto, SmartTech, Vr / Ar / Xr</h2>
     <p>The lines between the digital and physical worlds are blurring, and I am at the forefront of that revolution.</p>
     <p>Are You Ready?</p>
 
-    <!-- COUNTDOWN -->
-    <h2 id="countdown"></h2>
-
+    <!-- COUNTDOWN (label + timer) -->
+    <div class="countdown-wrap">
+      <div id="countdown-label">NEXT DROP:</div>
+      <div id="countdown"></div>
+    </div>
   </header>
 
   <main>
+    <!-- SLIDESHOW -->
+    <section>
+      <h2>Blender Portfolio</h2>
+
+      <div class="slideshow" id="slideshow">
+        <button class="slide-btn prev" aria-label="Previous slide" id="prevBtn">‹</button>
+        <button class="slide-btn next" aria-label="Next slide" id="nextBtn">›</button>
+
+        <!-- Replace these 5 images with your own -->
+        <div class="slide active">
+          <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=1600&q=80" alt="Portfolio piece 1">
+          <div class="slide-caption">Piece 1 — (edit this caption)</div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1520975958225-9e7d1a7da7b4?auto=format&fit=crop&w=1600&q=80" alt="Portfolio piece 2">
+          <div class="slide-caption">Piece 2 — (edit this caption)</div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Portfolio piece 3">
+          <div class="slide-caption">Piece 3 — (edit this caption)</div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" alt="Portfolio piece 4">
+          <div class="slide-caption">Piece 4 — (edit this caption)</div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=80" alt="Portfolio piece 5">
+          <div class="slide-caption">Piece 5 — (edit this caption)</div>
+        </div>
+      </div>
+
+      <div class="dots" id="dots"></div>
+      <p style="opacity:0.85; margin-top:6px;">Tip: swipe on mobile, or use arrows.</p>
+    </section>
+
     <section>
       <h2>Check these out</h2>
       <p><a href="https://news.mit.edu/" target="_blank"><strong>Massachusetts Institute of Technology News</strong></a></p>
@@ -134,7 +265,6 @@
     function toggleDarkMode() {
       const particles = document.getElementById('particles-js');
       const toggleButton = document.querySelector('.dark-mode-toggle');
-
       const isDark = document.body.classList.toggle('dark-mode');
 
       if (sadMode) {
@@ -145,52 +275,134 @@
 
       if (isDark) {
         particles.style.display = 'block';
-
         if (firstTimeDark) {
           toggleButton.textContent = 'Nothing?';
           firstTimeDark = false;
         } else {
           toggleButton.textContent = 'Its gone now';
-          setTimeout(() => {
-            sadMode = true;
-          }, 0);
+          setTimeout(() => { sadMode = true; }, 0);
         }
-
       } else {
         particles.style.display = 'none';
         toggleButton.textContent = 'One more time';
       }
     }
 
-    // ===== COUNTDOWN TIMER =====
+    // ===== SMOOTHER COUNTDOWN (with label space) =====
+    // Edit the label text here:
+    document.getElementById("countdown-label").textContent = "NEXT DROP:";
+
+    // Edit your target date here:
     const targetDate = new Date("March 20, 2026 00:00:00").getTime();
     const countdownElement = document.getElementById("countdown");
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+    let lastShown = "";
 
-      if (distance <= 0) {
-        countdownElement.innerHTML = "It Begins.";
-        return;
-      }
+    function formatCountdown(ms) {
+      if (ms <= 0) return "It Begins.";
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
+      const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((ms / (1000 * 60)) % 60);
+      const seconds = Math.floor((ms / 1000) % 60);
 
-      countdownElement.innerHTML =
-        days + "d " +
-        hours + "h " +
-        minutes + "m " +
-        seconds + "s";
+      // padded values for smoother visual change
+      const hh = String(hours).padStart(2, "0");
+      const mm = String(minutes).padStart(2, "0");
+      const ss = String(seconds).padStart(2, "0");
+
+      return `${days}d ${hh}h ${mm}m ${ss}s`;
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    function tickCountdown() {
+      const now = Date.now();
+      const distance = targetDate - now;
 
+      // Only update DOM when the displayed string changes
+      const text = formatCountdown(distance);
+      if (text !== lastShown) {
+        countdownElement.textContent = text;
+        lastShown = text;
+      }
+
+      requestAnimationFrame(tickCountdown);
+    }
+    tickCountdown();
+
+    // ===== SLIDESHOW =====
+    const slideshow = document.getElementById("slideshow");
+    const slides = Array.from(slideshow.querySelectorAll(".slide"));
+    const dotsWrap = document.getElementById("dots");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let idx = 0;
+    let autoTimer = null;
+
+    function renderDots() {
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.className = "dot" + (i === idx ? " active" : "");
+        d.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        d.addEventListener("click", () => goTo(i, true));
+        dotsWrap.appendChild(d);
+      });
+    }
+
+    function show(i) {
+      slides.forEach(s => s.classList.remove("active"));
+      slides[i].classList.add("active");
+      idx = i;
+      renderDots();
+    }
+
+    function next(user = false) {
+      show((idx + 1) % slides.length);
+      if (user) resetAuto();
+    }
+
+    function prev(user = false) {
+      show((idx - 1 + slides.length) % slides.length);
+      if (user) resetAuto();
+    }
+
+    function goTo(i, user = false) {
+      show(i);
+      if (user) resetAuto();
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => next(false), 4500);
+    }
+
+    prevBtn.addEventListener("click", () => prev(true));
+    nextBtn.addEventListener("click", () => next(true));
+
+    // Keyboard support
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prev(true);
+      if (e.key === "ArrowRight") next(true);
+    });
+
+    // Swipe support (mobile)
+    let startX = 0;
+    slideshow.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slideshow.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 40) {
+        diff > 0 ? prev(true) : next(true);
+      }
+    });
+
+    // init slideshow
+    show(0);
+    resetAuto();
   </script>
-
 </body>
 </html>
