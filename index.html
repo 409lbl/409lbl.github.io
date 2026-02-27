@@ -187,7 +187,7 @@
 
 <body>
   <div id="particles-js"></div>
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">See Anything?</button>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Winter Background</button>
 
   <header>
     <video width="300" autoplay loop muted playsinline>
@@ -247,9 +247,14 @@
     </section>
 
     <section>
-      <h2>Check these out</h2>
+      <h2>Resources and Cool Stuff</h2>
       <p><a href="https://news.mit.edu/" target="_blank"><strong>Massachusetts Institute of Technology News</strong></a></p>
       <p><a href="https://www.coindesk.com/" target="_blank"><strong>CoinDesk</strong></a></p>
+      <p><a href="https://nczoo.org/" target="_blank"><strong>NC Zoo, Asheboro, NC</strong></a></p>
+      <p><a href="https://www.bloomberg.com/btv/series/bloomberg-technology" target="_blank"><strong>Bloomberg Technology</strong></a></p>
+      <p><a href="https://news.mit.edu/" target="_blank"><strong>Massachusetts Institute of Technology News</strong></a></p>
+      <p><a href="https://www.coindesk.com/" target="_blank"><strong>CoinDesk</strong></a></p>
+      <p><a href="https://nczoo.org/" target="_blank"><strong>NC Zoo, Asheboro, NC</strong></a></p>
       <p><a href="https://www.bloomberg.com/btv/series/bloomberg-technology" target="_blank"><strong>Bloomberg Technology</strong></a></p>
     </section>
   </main>
@@ -280,15 +285,15 @@
       if (isDark) {
         particles.style.display = 'block';
         if (firstTimeDark) {
-          toggleButton.textContent = 'Nothing?';
+          toggleButton.textContent = 'Plain';
           firstTimeDark = false;
         } else {
-          toggleButton.textContent = 'Its gone now';
+          toggleButton.textContent = 'Winter';
           setTimeout(() => { sadMode = true; }, 0);
         }
       } else {
         particles.style.display = 'none';
-        toggleButton.textContent = 'One more time';
+        toggleButton.textContent = ' ';
       }
     }
 
@@ -410,4 +415,5 @@
   </script>
 </body>
 </html>
+
 
